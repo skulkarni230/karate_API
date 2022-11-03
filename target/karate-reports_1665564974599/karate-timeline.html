@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/tests\/N_GET[1:6]","start":1664780004116,"end":1664780006101,"title":"src\/test\/java\/tests\/N_GET[1:6] 12:23:24.116-12:23:26.101 GET user details with API"},{"id":2,"group":1,"content":"src\/test\/java\/tests\/N_GET[2:18]","start":1664780006109,"end":1664780006597,"title":"src\/test\/java\/tests\/N_GET[2:18] 12:23:26.109-12:23:26.597 Get users with specific first name"},{"id":3,"group":1,"content":"src\/test\/java\/tests\/N_GET[3:26]","start":1664780006608,"end":1664780007094,"title":"src\/test\/java\/tests\/N_GET[3:26] 12:23:26.608-12:23:27.094 Get users with specific multiple query parameter"},{"id":4,"group":1,"content":"src\/test\/java\/tests\/N_GET[4:34]","start":1664780007107,"end":1664780007675,"title":"src\/test\/java\/tests\/N_GET[4:34] 12:23:27.107-12:23:27.675 Get users count with avatar as query"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

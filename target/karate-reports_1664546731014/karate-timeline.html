@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"src\/test\/java\/tests\/N_GET[1:3]","start":1664546701544,"end":1664546702571,"title":"src\/test\/java\/tests\/N_GET[1:3] 19:35:01.544-19:35:02.571 GET user details with API"},{"id":2,"group":1,"content":"src\/test\/java\/tests\/N_GET[2:15]","start":1664546702577,"end":1664546702673,"title":"src\/test\/java\/tests\/N_GET[2:15] 19:35:02.577-19:35:02.673 Get users with specific first name"},{"id":3,"group":1,"content":"src\/test\/java\/tests\/N_GET[3:23]","start":1664546702677,"end":1664546703127,"title":"src\/test\/java\/tests\/N_GET[3:23] 19:35:02.677-19:35:03.127 Get users with specific multiple query parameter"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
